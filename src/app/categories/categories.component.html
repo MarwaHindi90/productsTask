@@ -1,0 +1,14 @@
+<div class="form-floating my-5">
+  <select
+  (change)="onCategoryChange($event)"
+    class="form-select"
+    id="floatingSelect"
+    aria-label="Floating label select example"
+  >
+    <option selected value="" disabled>Categories</option>
+    @for (category of categories; track category.id) {
+    <option [value]="category.id">{{ category.name }}</option>
+    }
+  </select>
+  <label for="floatingSelect">Select Category:</label>
+</div>

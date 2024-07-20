@@ -1,0 +1,54 @@
+<div class="row">
+  @if (products.length > 0){
+  <div class="col-md-12">
+    <input
+      class="form-control"
+      name="search"
+      id="search"
+      type="text"
+      [(ngModel)]="searchText"
+      placeholder="Search by Name or Price"
+    />
+  </div>
+  <div class="col-md-12 my-4">
+    <table class="table table-dark text-light text-center">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Image</th>
+          <th>Quantity</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (product of products |search: searchText ; track product.id) {
+        <tr>
+          <td>{{ product.id }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.price | currency : "EGP":'symbol':'1.0-2' }}</td>
+          <td>{{ product.description }}</td>
+          <td>
+            <img
+              class="rounded-5"
+              [src]="product.image"
+              style="max-width: 70px; max-height: 70px"
+            />
+          </td>
+          <td>
+            @if(product.quantity>0) {
+                {{ product.quantity }}
+            }
+            @else {
+                <p class="text-danger">Out of Stock</p>
+            }
+        </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+
+  }
+</div>
