@@ -89,7 +89,7 @@ products = [
     description: 'This is Accessories',
     image: '/assets/images/headphone.png',
     quantity: 1,
-    categoryId: 3,
+    categoryId: 4,
     },
     {
     id: 8,
